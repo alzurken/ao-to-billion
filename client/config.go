@@ -34,11 +34,11 @@ type config struct {
 	OfflinePath                    string
 	RecordPath                     string
 	PrivateIngestBaseUrls          string
-	PublicIngestBaseUrls           string
-	NoCPULimit                     bool
+	//PublicIngestBaseUrls           string
+	NoCPULimit bool
 }
 
-//config global config data
+// config global config data
 var ConfigGlobal = &config{
 	LogLevel: "INFO",
 }
@@ -164,12 +164,14 @@ func (config *config) setupCommonFlags() {
 		"Automatically minimize the window.",
 	)
 
-	flag.StringVar(
+	/*flag.StringVar(
 		&config.PublicIngestBaseUrls,
 		"i",
 		"http+pow://www.albion-online-data.com:4223",
 		"Base URL to send PUBLIC data to, can be 'nats://', 'http://' or 'noop' and can have multiple uploaders. Comma separated.",
 	)
+
+	*/
 
 	flag.StringVar(
 		&config.PrivateIngestBaseUrls,

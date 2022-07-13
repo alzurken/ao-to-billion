@@ -11,7 +11,7 @@ import (
 )
 
 type dispatcher struct {
-	publicUploaders  []uploader
+	//publicUploaders  []uploader
 	privateUploaders []uploader
 }
 
@@ -22,7 +22,7 @@ var (
 
 func createDispatcher() {
 	dis = &dispatcher{
-		publicUploaders:  createUploaders(strings.Split(ConfigGlobal.PublicIngestBaseUrls, ",")),
+		//publicUploaders:  createUploaders(strings.Split(ConfigGlobal.PublicIngestBaseUrls, ",")),
 		privateUploaders: createUploaders(strings.Split(ConfigGlobal.PrivateIngestBaseUrls, ",")),
 	}
 
@@ -65,7 +65,7 @@ func sendMsgToPublicUploaders(upload interface{}, topic string, state *albionSta
 		return
 	}
 
-	sendMsgToUploaders(data, topic, dis.publicUploaders)
+	//sendMsgToUploaders(data, topic, dis.publicUploaders)
 	sendMsgToUploaders(data, topic, dis.privateUploaders)
 
 	// If websockets are enabled, send the data there too
